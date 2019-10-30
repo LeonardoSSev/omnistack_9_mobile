@@ -21,6 +21,12 @@ function SpotList({ tech, navigation }) {
   function handleNavigate(id) {
     navigation.navigate('Book', { id });
   }
+  
+  function getParsedThumbnailUrl(url) {
+    return {
+      uri: url.replace('http://localhost:3333', 'http://192.168.15.39:3333')
+    }
+  }
 
   return (
     <View style={styles.container}>
@@ -33,7 +39,7 @@ function SpotList({ tech, navigation }) {
         showsHorizontalScrollIndicator={false}
         renderItem={({ item }) => (
           <View style={styles.listItem}>
-            <Image style={styles.thumbnail} source={{ uri: item.thumbnail_url }} />
+            <Image style={styles.thumbnail} source={getParsedThumbnailUrl(item.thumbnail_url)} />
             <Text style={styles.company}>{item.company}</Text>
             <Text style={styles.price}>{item.price ? `R$${item.price}/dia` : 'Gratuito'}</Text>
             <TouchableOpacity style={styles.button} onPress={() => handleNavigate(item._id)}>
