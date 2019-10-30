@@ -3,7 +3,7 @@ import Routes from './src/routes';
 import { YellowBox } from 'react-native';
 
 YellowBox.ignoreWarnings([
-  'Unrecognized Web Socket'
+  'Unrecognized WebSocket'
 ]);
 
 export default function App() {
